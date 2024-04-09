@@ -143,12 +143,31 @@ IFriends is an app that connect international students within college campuses. 
 
 
 
-
 ### Networking
 
-- [List of network requests by screen]
-- [Example: `[GET] /users` - to retrieve user data]
-- ...
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]``
+#### Login Screen
+- [POST] /login 
+  - Endpoint to authenticate user login credentials.
+
+#### Registration Screen
+- [POST] /register 
+  - Endpoint to create a new user account.
+
+#### Home Screen
+- [GET] /feed 
+  - Endpoint to retrieve posts for the user's feed.
+
+#### Add Post Screen
+- [POST] /posts 
+  - Endpoint to add a new post to the user's profile.
+
+#### Messaging Screen
+- [GET] /messages/{conversation_id} 
+  - Endpoint to retrieve messages for a specific conversation.
+- [POST] /messages 
+  - Endpoint to send a message in a conversation.
+
+#### User Profile
+- [GET] /profile/{username} 
+  - Endpoint to retrieve user profile information for a specific user.
+
