@@ -96,7 +96,7 @@ IFriends is an app that connect international students within college campuses. 
   * User can create posts and attach images, links and files and share.
 
 ## Wireframes
-<img src="https://i.imgur.com/4nZH2ro.jpeg" alt="Image" style="transform: rotate(90deg);">
+<img src="https://i.imgur.com/YiMMYHS.jpeg" style="transform: rotate(90deg);">
 
 ### [BONUS] Digital Wireframes & Mockups
 <img src="https://i.imgur.com/BhSR7vm.png">
