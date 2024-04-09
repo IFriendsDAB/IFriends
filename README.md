@@ -104,7 +104,8 @@ IFriends is an app that connect international students within college campuses. 
 
 
 ### [BONUS] Interactive Prototype
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/2xHLx89" data-context="false" ><a href="//imgur.com/a/2xHLx89"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![Imgur Image](https://imgur.com/1vivxma)
+
 
 ## Schema 
 
