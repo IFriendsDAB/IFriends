@@ -37,14 +37,14 @@ IFriends is an app that connect international students within college campuses. 
 
 **Required Must-have Stories**
 
--[ ] Login/Registration Screen
+- [ ] Login/Registration Screen
     * As an international student, I want to be able to log in to my IFriends account so that I can access my personalized feed and connect with other students.
     * As a new user, I want to create an account on IFriends to join the community of international students and start making connections.
--[ ] View content Stream
+- [ ] View content Stream
     * As a user, I want to view a feed of events and posts to stay updated on what's happening within my international student community.
--[ ] Creation of posts
+- [ ] Creation of posts
     * As a user, I want to share my experiences by posting new content to my stream, contributing to the community and sharing my culture.
--[ ] Search
+- [ ] Search
     * As a user, I want to search for other international students or clubs so that I can grow my network and find peers with similar interests.
  
 
