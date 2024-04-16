@@ -104,7 +104,9 @@ IFriends is an app that connect international students within college campuses. 
   * User can create posts and attach images, links and files and share.
 
 ## GIFs for each Milestones
+
 ###Current Progress GIF
+
 ![launch-screen](https://github.com/IFriendsDAB/IFriends/assets/64405568/28bac095-7f32-474f-82bd-9b9a34842960)
 
 
