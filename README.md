@@ -26,6 +26,14 @@ IFriends is an app that connect international students within college campuses. 
 ## Product Spec
 
 ### 1. User Stories (Required and Optional)
+**Finished**
+- [X] Created AppIcon and LaunchScreen
+
+**Work in Progress**
+- [ ] Set up Login Page StoryBoard
+- [ ] Add Registration Page StoryBoard
+- [ ] Set up Back4App for the User information Login
+
 
 **Required Must-have Stories**
 
@@ -94,6 +102,11 @@ IFriends is an app that connect international students within college campuses. 
   * Lets user compose message and shar files and pictures.
 - [ ] [** Add Post Page**]
   * User can create posts and attach images, links and files and share.
+
+## GIFs for each Milestones
+###Current Progress GIF
+#![launch-screen](https://github.com/IFriendsDAB/IFriends/assets/64405568/28bac095-7f32-474f-82bd-9b9a34842960)
+
 
 ## Wireframes
 <img src="https://i.imgur.com/YiMMYHS.jpeg" style="transform: rotate(90deg);">
