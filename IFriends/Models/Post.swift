@@ -21,4 +21,9 @@ struct Post: ParseObject {
     var user: User?
     var imageFile: ParseFile?
     var profilePicture: ParseFile?
+    var likesCount: Int = 0
+    var likedBy: [String] = [] // Array of User who liked the post
+    
 }
+
+

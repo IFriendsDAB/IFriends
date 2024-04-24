@@ -38,15 +38,17 @@ class FeedViewController: UIViewController {
     private func queryPosts(completion: (() -> Void)? = nil) {
         let yesterdayDate = Calendar.current.date(byAdding: .day, value: (-1), to: Date())!
         let query = Post.query()
-            .include("user")
+            .include(["user"])
             .order([.descending("createdAt")])
             .where("createdAt" >= yesterdayDate)
             .limit(10)
         query.find{[weak self] result in
             switch result {
-            case.success(let posts):
+            case .success(let posts):
+                print("Fetched posts: \(posts)")
                 self?.posts = posts
-            case.failure(let error):
+            case .failure(let error):
+                print("Error fetching posts: \(error.localizedDescription)")
                 self?.showAlert(description: error.localizedDescription)
             }
             completion?()

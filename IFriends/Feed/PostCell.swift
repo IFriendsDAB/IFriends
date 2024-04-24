@@ -29,6 +29,58 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var timeagoPost: UILabel!
     @IBOutlet weak var profilePIcture: UIImageView!
     
+    @IBOutlet weak var likesLabel: UILabel!
+    var post: Post?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        setupLikeGesture()
+    }
+    
+    private func setupLikeGesture() {
+        let likeTap = UITapGestureRecognizer(target: self, action: #selector(handleLikeTap))
+        likeImageView.isUserInteractionEnabled = true
+        likeImageView.addGestureRecognizer(likeTap)
+    }
+    
+    @objc func handleLikeTap() {
+        guard let post = post else { return }
+        toggleLike(for: post)
+    }
+    
+    func toggleLike(for post: Post) {
+        guard let currentUserObjectId = User.current?.objectId else { return }
+        var mutablePost = post
+        
+        if mutablePost.likedBy.contains(currentUserObjectId) {
+            mutablePost.likesCount -= 1
+            mutablePost.likedBy.removeAll { $0 == currentUserObjectId }
+            likeImageView.image = UIImage(named: "thumbs_up")  // Set unliked state image
+        } else {
+            mutablePost.likesCount += 1
+            mutablePost.likedBy.append(currentUserObjectId)
+            likeImageView.image = UIImage(named: "thumbs_up_filled")  // Set liked state image
+        }
+        
+        saveUpdatedPost(mutablePost)
+    }
+    
+    func saveUpdatedPost(_ post: Post) {
+        post.save { [weak self] result in
+            switch result {
+            case .success(let updatedPost):
+                DispatchQueue.main.async {
+                    self?.post = updatedPost  // Update the local reference with the saved post
+                    self?.configure(with: updatedPost)  // Reconfigure the cell with the new post data
+                }
+            case .failure(let error):
+                print("Failed to update post: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
     func configure(with post: Post){
         if let user = post.user {
             usernamePost.text = user.username

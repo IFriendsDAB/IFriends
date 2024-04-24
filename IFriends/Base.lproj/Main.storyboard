@@ -228,11 +228,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qzU-Cn-UoB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzU-Cn-UoB">
                                 <rect key="frame" x="20" y="275" width="352" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                <color key="tintColor" systemColor="tertiarySystemFillColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWs-h9-JIa">
                                 <rect key="frame" x="268" y="134" width="91" height="21"/>
@@ -242,7 +240,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dIj-Vi-QT8">
-                                <rect key="frame" x="35" y="127.33333333333333" width="40" height="37.333333333333329"/>
+                                <rect key="frame" x="35" y="127.33333333333326" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6E-or-IP8">
@@ -262,8 +260,6 @@
                     <connections>
                         <outlet property="captionField" destination="UQ0-aO-TsV" id="nbe-Xy-k20"/>
                         <outlet property="previewImageView" destination="qzU-Cn-UoB" id="VX7-Lb-AhX"/>
-                        <outlet property="profilePicture" destination="dIj-Vi-QT8" id="6O3-pj-sME"/>
-                        <outlet property="username" destination="VWs-h9-JIa" id="hfX-Bj-wtg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aib-1i-EBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -288,7 +284,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" fixedFrame="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PUW-9d-NMN" userLabel="Profile Pic">
                                 <rect key="frame" x="121" y="185.66666666666663" width="150" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="tertiaryLabelColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYR-Wr-DcK">
@@ -300,7 +296,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m3z-yU-9Q1"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="TrL-th-Tc1">
                         <barButtonItem key="leftBarButtonItem" title="Edit Profile" width="7" id="Ca5-84-zYT" userLabel="Edit Profile">
@@ -550,6 +546,7 @@
                                             <outlet property="captionPost" destination="nS5-7l-ooQ" id="G5f-9G-c4E"/>
                                             <outlet property="datePost" destination="0wH-h7-CR4" id="RGK-23-BKX"/>
                                             <outlet property="imagePost" destination="VqX-fY-CFs" id="EfV-4a-AOc"/>
+                                            <outlet property="likeImageView" destination="PJj-JB-kBi" id="7wY-U6-ero"/>
                                             <outlet property="profilePIcture" destination="6LU-17-loF" id="qvr-5f-qft"/>
                                             <outlet property="timeagoPost" destination="12N-3G-pGm" id="fUJ-DZ-TXx"/>
                                             <outlet property="usernamePost" destination="7Lg-F5-vsp" id="P3p-ON-6fW"/>
@@ -636,9 +633,6 @@
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemFillColor">
-            <color red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
