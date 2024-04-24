@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
                 print("User data refreshed successfully.")
                 DispatchQueue.main.async {
                     self?.fullname.text = updatedUser.fullname
-                    self?.username.text = updatedUser.username
+                    self?.username.text = "@" + (updatedUser.username ?? "no username")
                     self?.updateProfilePicture(updatedUser)
                 }
             case .failure(let error):
@@ -48,12 +48,12 @@ class ProfileViewController: UIViewController {
             print("No profile picture is associated with the user or no URL found for the image.")
             return
         }
-        profilePicture.frame = CGRect(x: 100, y: 100, width: 200, height: 200)  // Ensure width and height are equal
+        profilePicture.layer.cornerRadius = 25
+        profilePicture.clipsToBounds = true
+        profilePicture.layer.borderColor = UIColor.blue.cgColor
         profilePicture.contentMode = .scaleAspectFill
         profilePicture.layer.cornerRadius = profilePicture.frame.width / 2
         profilePicture.clipsToBounds = true
-        
-        // Optional: Add border to the imageView
         profilePicture.layer.borderWidth = 3.0
         profilePicture.layer.borderColor = UIColor.white.cgColor
 

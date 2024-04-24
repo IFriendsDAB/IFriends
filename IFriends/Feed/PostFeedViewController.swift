@@ -7,16 +7,64 @@
 
 import UIKit
 import PhotosUI
+import Alamofire
+import AlamofireImage
 import ParseSwift
+
+private var imageDataRequest: DataRequest?
+
 class PostFeedViewController: UIViewController, PHPickerViewControllerDelegate {
 
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var previewImageView: UIImageView!
     var pickedImage: UIImage?
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshUserData()
+    }
+    
+    private func refreshUserData() {
+        guard let currentUser = User.current else {
+            print("No current user logged in")
+            return
+        }
 
-        // Do any additional setup after loading the view.
+        currentUser.fetch { [weak self] result in
+            switch result {
+            case .success(let updatedUser):
+                print("User data refreshed successfully.")
+                DispatchQueue.main.async {
+                    self?.username.text = "@" + (updatedUser.username ?? "no username")
+                    self?.updateProfilePicture(updatedUser)
+                }
+            case .failure(let error):
+                print("Error refreshing user data: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func updateProfilePicture(_ user: User) {
+        guard let imageFile = user.profilePicture, let imageUrl = imageFile.url else {
+            print("No profile picture is associated with the user or no URL found for the image.")
+            return
+        }
+        profilePicture.layer.cornerRadius = 20
+        profilePicture.clipsToBounds = true
+        profilePicture.contentMode = .scaleAspectFill
+
+        imageDataRequest = AF.request(imageUrl).responseImage { [weak self] response in
+            switch response.result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.profilePicture.image = image
+                }
+            case .failure(let error):
+                print("❌ Error fetching image: \(error.localizedDescription)")
+            }
+        }
     }
     
     @IBAction func onPickedImageTapped(_ sender: Any) {
