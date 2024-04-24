@@ -21,11 +21,22 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // user test
-        if let userNameTest = User.current?.username {
-            print("User:", userNameTest)
-        } else {
-            print("User can not be found")
-        }
+        guard let currentUser = User.current else {
+                   print("User cannot be found")
+                   return
+               }
+        
+        DispatchQueue.main.async {
+                if let fullName = currentUser.fullname {
+                    self.fullname.text = fullName
+                }
+                
+                if let username = currentUser.username {
+                    self.username.text = username
+                }
+            }
+        
+        
         
         
         
@@ -48,7 +59,9 @@ class ProfileViewController: UIViewController {
                 switch response.result {
                 case .success(let image):
                     // Set image view image with fetched image
-                    self?.profilePicture.image = image
+                    DispatchQueue.main.async {  // Ensure UI updates are on the main thread
+                        self?.profilePicture.image = image
+                    }
                 case .failure(let error):
                     print("❌ Error fetching image: \(error.localizedDescription)")
                     break

@@ -12,15 +12,22 @@ import AlamofireImage
 
 class PostCell: UITableViewCell {
 
-    @IBOutlet weak var usernamePost: UILabel!
+//    @IBOutlet weak var usernamePost: UILabel!
+//    
+//    @IBOutlet weak var imagePost: UIImageView!
+//    @IBOutlet weak var datePost: UILabel!
+//    @IBOutlet weak var captionPost: UILabel!
+//    @IBOutlet weak var timeagoPost: UILabel!
+//    
+//    @IBOutlet weak var profilePicture: UIImageView!
+    var imageDataRequest: DataRequest?
     
-    @IBOutlet weak var imagePost: UIImageView!
+    @IBOutlet weak var usernamePost: UILabel!
     @IBOutlet weak var datePost: UILabel!
     @IBOutlet weak var captionPost: UILabel!
+    @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var timeagoPost: UILabel!
-    
-    @IBOutlet weak var profilePicture: UIImageView!
-    var imageDataRequest: DataRequest?
+    @IBOutlet weak var profilePIcture: UIImageView!
     
     func configure(with post: Post){
         if let user = post.user {
@@ -52,7 +59,7 @@ class PostCell: UITableViewCell {
                     // Set image view image with fetched image
                     print("IMAGE PRINTED!")
                     print(imageUrl)
-                    self?.profilePicture.image = image
+                    self?.profilePIcture.image = image
                 case .failure(let error):
                     print("❌ Error fetching profile image: \(error.localizedDescription)")
                     // You can also print the full error for more details
