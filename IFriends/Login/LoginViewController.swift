@@ -17,16 +17,17 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func onLoginTapped(_ sender: Any) {
-        guard let username = usernameField.text,
-              let password = passwordField.text,
-              !username.isEmpty,
-              !password.isEmpty else {
-            showMissingFieldsAlert()
-            return
-        }
+    @IBAction func tappedLogin(_ sender: Any) {
         
+        print("Login Button Tapped")
+        guard let username = usernameField.text,
+                      let password = passwordField.text,
+                      !username.isEmpty,
+                      !password.isEmpty else{
+                    showMissingFieldsAlert()
+                    return
+        }
+                
         User.login(username:username, password: password){[weak self] result in
             switch result {
             case .success(let user):
@@ -36,9 +37,10 @@ class LoginViewController: UIViewController {
             case .failure(let error):
                 self?.showAlert(description: error.localizedDescription)
             }
-            
+                    
         }
     }
+    
     
     private func showAlert(description: String?) {
         let alertController = UIAlertController(title: "Unable to Log in", message: description ?? "Unknown error", preferredStyle: .alert)

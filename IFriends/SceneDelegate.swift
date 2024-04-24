@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  IFriends
+//  BeReal
 //
-//  Created by Amir Ince on 4/9/24.
+//  Created by Barsha Chaudhary on 3/3/24.
 //
 
 import UIKit
@@ -34,8 +34,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //Check for cached user for persisted log in.
         if User.current != nil {
             login()
-        } else {
-            print("No user logged in")
         }
     }
     
