@@ -248,55 +248,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYR-Wr-DcK">
-                                <rect key="frame" x="95" y="386.33333333333326" width="202" height="15.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Fullname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1X-MG-oE4">
-                                <rect key="frame" x="30" y="342.33333333333331" width="332" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fullname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1X-MG-oE4">
+                                <rect key="frame" x="30" y="328" width="332" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-iI-ajj">
-                                <rect key="frame" x="76" y="179" width="240" height="128"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PUW-9d-NMN" userLabel="Profile Pic">
-                                        <rect key="frame" x="0.0" y="24.666666666666742" width="240" height="79"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" systemColor="tertiaryLabelColor"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="PUW-9d-NMN" firstAttribute="top" secondItem="WUY-iI-ajj" secondAttribute="top" id="TSq-Dw-jO2"/>
-                                    <constraint firstItem="PUW-9d-NMN" firstAttribute="leading" secondItem="WUY-iI-ajj" secondAttribute="leading" id="io1-Zz-R5z"/>
-                                    <constraint firstAttribute="trailing" secondItem="PUW-9d-NMN" secondAttribute="trailing" id="wKa-Nk-bir"/>
-                                    <constraint firstAttribute="bottom" secondItem="PUW-9d-NMN" secondAttribute="bottom" id="zCJ-NN-3mI"/>
-                                </constraints>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" fixedFrame="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PUW-9d-NMN" userLabel="Profile Pic">
+                                <rect key="frame" x="121" y="185.66666666666663" width="150" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="tertiaryLabelColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYR-Wr-DcK">
+                                <rect key="frame" x="95" y="372" width="202" height="15.666666666666686"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m3z-yU-9Q1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="s1X-MG-oE4" firstAttribute="leading" secondItem="m3z-yU-9Q1" secondAttribute="leading" constant="30" id="Dgo-ty-uiw"/>
-                            <constraint firstItem="m3z-yU-9Q1" firstAttribute="trailing" secondItem="WUY-iI-ajj" secondAttribute="trailing" constant="77" id="Kdi-eO-Fnm"/>
-                            <constraint firstItem="WUY-iI-ajj" firstAttribute="leading" secondItem="m3z-yU-9Q1" secondAttribute="leading" constant="76" id="PmX-WL-3E3"/>
-                            <constraint firstItem="JYR-Wr-DcK" firstAttribute="leading" secondItem="m3z-yU-9Q1" secondAttribute="leading" constant="95" id="SOV-qz-gCH"/>
-                            <constraint firstItem="s1X-MG-oE4" firstAttribute="top" secondItem="WUY-iI-ajj" secondAttribute="bottom" constant="35.329999999999998" id="STH-Sx-rYm"/>
-                            <constraint firstItem="WUY-iI-ajj" firstAttribute="top" secondItem="m3z-yU-9Q1" secondAttribute="top" constant="76" id="ei1-E5-Y1e"/>
-                            <constraint firstItem="JYR-Wr-DcK" firstAttribute="top" secondItem="s1X-MG-oE4" secondAttribute="bottom" constant="8" id="lsI-dA-ccc"/>
-                            <constraint firstItem="m3z-yU-9Q1" firstAttribute="trailing" secondItem="s1X-MG-oE4" secondAttribute="trailing" constant="31" id="otp-Fs-fVh"/>
-                            <constraint firstItem="m3z-yU-9Q1" firstAttribute="trailing" secondItem="JYR-Wr-DcK" secondAttribute="trailing" constant="96" id="v6E-iJ-x5d"/>
-                            <constraint firstItem="m3z-yU-9Q1" firstAttribute="bottom" secondItem="JYR-Wr-DcK" secondAttribute="bottom" constant="367" id="xbw-j4-dPR"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TrL-th-Tc1">
-                        <barButtonItem key="rightBarButtonItem" title="Edit Profile" width="7" id="Ca5-84-zYT" userLabel="Edit Profile">
+                        <barButtonItem key="leftBarButtonItem" title="Edit Profile" width="7" id="Ca5-84-zYT" userLabel="Edit Profile">
                             <connections>
                                 <segue destination="hX5-5d-jkl" kind="show" id="Zht-bS-DQy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Rng-vV-Meq">
+                            <connections>
+                                <action selector="onLogoutTapped:" destination="0MA-2p-A2N" id="A00-Lu-fjK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

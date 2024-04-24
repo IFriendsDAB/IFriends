@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import ParseSwift
 
 private var imageDataRequest: DataRequest?
 
@@ -16,43 +17,51 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        updateUserData()
-        loadProfilePicture()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshUserData()
     }
         
-    private func updateUserData() {
+    private func refreshUserData() {
         guard let currentUser = User.current else {
-            print("User cannot be found")
+            print("No current user logged in")
             return
         }
-        
-        DispatchQueue.main.async {
-            self.fullname.text = currentUser.fullname
-            self.username.text = currentUser.username
+
+        currentUser.fetch { [weak self] result in
+            switch result {
+            case .success(let updatedUser):
+                print("User data refreshed successfully.")
+                DispatchQueue.main.async {
+                    self?.fullname.text = updatedUser.fullname
+                    self?.username.text = updatedUser.username
+                    self?.updateProfilePicture(updatedUser)
+                }
+            case .failure(let error):
+                print("Error refreshing user data: \(error.localizedDescription)")
+            }
         }
-        
-        print("User:", currentUser.username ?? "No username available")
     }
-    
-    private func loadProfilePicture() {
-        guard let imageFile = User.current?.profilePicture, let imageUrl = imageFile.url else {
+
+    private func updateProfilePicture(_ user: User) {
+        guard let imageFile = user.profilePicture, let imageUrl = imageFile.url else {
             print("No profile picture is associated with the user or no URL found for the image.")
             return
         }
+        profilePicture.frame = CGRect(x: 100, y: 100, width: 200, height: 200)  // Ensure width and height are equal
+        profilePicture.contentMode = .scaleAspectFill
+        profilePicture.layer.cornerRadius = profilePicture.frame.width / 2
+        profilePicture.clipsToBounds = true
         
-        print("Image URL: \(imageUrl)")
-        
-        // Use AlamofireImage to fetch the remote image from URL
+        // Optional: Add border to the imageView
+        profilePicture.layer.borderWidth = 3.0
+        profilePicture.layer.borderColor = UIColor.white.cgColor
+
         imageDataRequest = AF.request(imageUrl).responseImage { [weak self] response in
-            guard let self = self else { return }
-            
             switch response.result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.profilePicture.image = image
+                    self?.profilePicture.image = image
                 }
             case .failure(let error):
                 print("❌ Error fetching image: \(error.localizedDescription)")
@@ -60,5 +69,19 @@ class ProfileViewController: UIViewController {
         }
     }
         
+    @IBAction func onLogoutTapped(_ sender: Any) {
+        showConfirmLogoutAlert()
+    }
+    
+    private func showConfirmLogoutAlert() {
+        let alertController = UIAlertController(title: "Log out of your account?", message: nil, preferredStyle: .alert)
+        let logOutAction = UIAlertAction(title: "Log out", style: .destructive) { _ in
+            NotificationCenter.default.post(name: Notification.Name("logout"), object: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(logOutAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
     
 }
