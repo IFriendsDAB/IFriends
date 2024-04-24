@@ -69,6 +69,9 @@ class PostCell: UITableViewCell {
             }
         }
         
+        profilePIcture.layer.cornerRadius = 25
+        profilePIcture.clipsToBounds = true
+        profilePIcture.layer.borderColor = UIColor.blue.cgColor
         captionPost.text = post.caption
         
         if let date = post.createdAt{

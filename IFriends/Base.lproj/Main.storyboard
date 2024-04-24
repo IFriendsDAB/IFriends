@@ -474,22 +474,27 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="hPb-Df-pZu" userLabel="SecondRow">
-                                                    <rect key="frame" x="10" y="70" width="373" height="456"/>
+                                                    <rect key="frame" x="0.0" y="70" width="393" height="456"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VqX-fY-CFs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="373"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="393"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="373" id="7jN-dZ-UYU"/>
+                                                                <constraint firstAttribute="width" secondItem="VqX-fY-CFs" secondAttribute="height" multiplier="1:1" id="nnW-ki-kcm"/>
                                                                 <constraint firstAttribute="height" constant="373" id="x1p-9m-I98"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where the caption go.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS5-7l-ooQ">
-                                                            <rect key="frame" x="0.0" y="373" width="222.66666666666666" height="83"/>
+                                                            <rect key="frame" x="0.0" y="393" width="222.66666666666666" height="63"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="VqX-fY-CFs" secondAttribute="trailing" id="YUJ-6u-eMJ"/>
+                                                        <constraint firstItem="VqX-fY-CFs" firstAttribute="leading" secondItem="hPb-Df-pZu" secondAttribute="leading" id="lJP-jJ-vJG"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="137" translatesAutoresizingMaskIntoConstraints="NO" id="Ij3-bv-bjz" userLabel="ThirdRow">
                                                     <rect key="frame" x="10" y="536" width="373" height="30"/>
@@ -531,8 +536,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="ovt-oA-30s" secondAttribute="trailing" constant="10" id="EDq-Ua-KBw"/>
                                                 <constraint firstItem="Ij3-bv-bjz" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" constant="10" id="Tpj-Wh-Ai1"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ij3-bv-bjz" secondAttribute="trailing" constant="10" id="W6P-QC-sIU"/>
-                                                <constraint firstItem="hPb-Df-pZu" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" constant="10" id="Xkv-UE-ufU"/>
-                                                <constraint firstAttribute="trailing" secondItem="hPb-Df-pZu" secondAttribute="trailing" constant="10" id="Zx2-5B-TXS"/>
+                                                <constraint firstItem="hPb-Df-pZu" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" id="Xkv-UE-ufU"/>
+                                                <constraint firstAttribute="trailing" secondItem="hPb-Df-pZu" secondAttribute="trailing" id="Zx2-5B-TXS"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ij3-bv-bjz" secondAttribute="bottom" constant="10" id="f5e-Sm-TOc"/>
                                                 <constraint firstItem="ovt-oA-30s" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" constant="10" id="xbN-5W-sFX"/>
                                             </constraints>
