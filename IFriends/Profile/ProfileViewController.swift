@@ -18,56 +18,47 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        // user test
+        updateUserData()
+        loadProfilePicture()
+    }
+        
+    private func updateUserData() {
         guard let currentUser = User.current else {
-                   print("User cannot be found")
-                   return
-               }
+            print("User cannot be found")
+            return
+        }
         
         DispatchQueue.main.async {
-                if let fullName = currentUser.fullname {
-                    self.fullname.text = fullName
-                }
-                
-                if let username = currentUser.username {
-                    self.username.text = username
-                }
-            }
-        
-        
-        
-        
-        
-        // Image
-        if let imageFile = User.current?.profilePicture {
-            if let imageUrl = imageFile.url {
-                print("Image URL: \(imageUrl)")
-            } else {
-                print("No URL found for the image.")
-            }
-        } else {
-            print("No profile picture is associated with the user.")
+            self.fullname.text = currentUser.fullname
+            self.username.text = currentUser.username
         }
         
-        if let imageFile = User.current?.profilePicture,
-           let imageUrl = imageFile.url {
-            
-            // Use AlamofireImage helper to fetch remote image from URL
-            imageDataRequest = AF.request(imageUrl).responseImage { [weak self] response in
-                switch response.result {
-                case .success(let image):
-                    // Set image view image with fetched image
-                    DispatchQueue.main.async {  // Ensure UI updates are on the main thread
-                        self?.profilePicture.image = image
-                    }
-                case .failure(let error):
-                    print("❌ Error fetching image: \(error.localizedDescription)")
-                    break
-                }
-            }
-        }
-        
+        print("User:", currentUser.username ?? "No username available")
     }
+    
+    private func loadProfilePicture() {
+        guard let imageFile = User.current?.profilePicture, let imageUrl = imageFile.url else {
+            print("No profile picture is associated with the user or no URL found for the image.")
+            return
+        }
+        
+        print("Image URL: \(imageUrl)")
+        
+        // Use AlamofireImage to fetch the remote image from URL
+        imageDataRequest = AF.request(imageUrl).responseImage { [weak self] response in
+            guard let self = self else { return }
+            
+            switch response.result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.profilePicture.image = image
+                }
+            case .failure(let error):
+                print("❌ Error fetching image: \(error.localizedDescription)")
+            }
+        }
+    }
+        
+    
 }

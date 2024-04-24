@@ -51,7 +51,7 @@ class PostCell: UITableViewCell {
             }
         }
         //profile Image
-        if let imageFile = post.imageFile, let imageUrl = imageFile.url {
+        if let imageFile = post.user?.profilePicture, let imageUrl = imageFile.url {
             // Use AlamofireImage helper to fetch remote image from URL
             imageDataRequest = AF.request(imageUrl).responseImage { [weak self] response in
                 switch response.result {
