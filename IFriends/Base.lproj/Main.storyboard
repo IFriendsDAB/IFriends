@@ -260,6 +260,8 @@
                     <connections>
                         <outlet property="captionField" destination="UQ0-aO-TsV" id="nbe-Xy-k20"/>
                         <outlet property="previewImageView" destination="qzU-Cn-UoB" id="VX7-Lb-AhX"/>
+                        <outlet property="profilePicture" destination="dIj-Vi-QT8" id="krW-g4-N5i"/>
+                        <outlet property="username" destination="VWs-h9-JIa" id="usV-8Z-6iQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aib-1i-EBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -546,7 +548,7 @@
                                             <outlet property="captionPost" destination="nS5-7l-ooQ" id="G5f-9G-c4E"/>
                                             <outlet property="datePost" destination="0wH-h7-CR4" id="RGK-23-BKX"/>
                                             <outlet property="imagePost" destination="VqX-fY-CFs" id="EfV-4a-AOc"/>
-                                            <outlet property="likeImageView" destination="PJj-JB-kBi" id="7wY-U6-ero"/>
+                                            <outlet property="likeImageView" destination="PJj-JB-kBi" id="nNp-G9-hrh"/>
                                             <outlet property="profilePIcture" destination="6LU-17-loF" id="qvr-5f-qft"/>
                                             <outlet property="timeagoPost" destination="12N-3G-pGm" id="fUJ-DZ-TXx"/>
                                             <outlet property="usernamePost" destination="7Lg-F5-vsp" id="P3p-ON-6fW"/>

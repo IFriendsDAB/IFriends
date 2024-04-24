@@ -28,7 +28,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var timeagoPost: UILabel!
     @IBOutlet weak var profilePIcture: UIImageView!
-    
+    @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     var post: Post?
     
