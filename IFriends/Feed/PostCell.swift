@@ -69,6 +69,7 @@ class PostCell: UITableViewCell {
             }
         }
         
+        // Code to round the profile picture
         profilePIcture.layer.cornerRadius = 25
         profilePIcture.clipsToBounds = true
         profilePIcture.layer.borderColor = UIColor.blue.cgColor

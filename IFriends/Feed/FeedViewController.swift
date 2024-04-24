@@ -12,6 +12,7 @@ class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
+    
     private var posts = [Post]() {
         didSet{
             tableView.reloadData()
@@ -24,14 +25,13 @@ class FeedViewController: UIViewController {
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.refreshControl = refreshControl
-//        refreshControl.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
 //        refreshControl.tintColor = .white
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         queryPosts()
     }
     
