@@ -21,6 +21,8 @@
 		AD87C6202BD759790090DCCE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C61F2BD759790090DCCE /* SignUpViewController.swift */; };
 		AD87C6232BD770190090DCCE /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C6222BD770190090DCCE /* PostCell.swift */; };
 		AD87C6252BD770640090DCCE /* PostFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C6242BD770640090DCCE /* PostFeedViewController.swift */; };
+		DC3BE2632BD7FA33007E8350 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */; };
+		DC3BE2652BD809B8007E8350 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		AD87C61F2BD759790090DCCE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AD87C6222BD770190090DCCE /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AD87C6242BD770640090DCCE /* PostFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeedViewController.swift; sourceTree = "<group>"; };
+		DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1355E6222BC5DBB9006A2DEB /* AppDelegate.swift */,
+				DC3BE2612BD7F714007E8350 /* Profile */,
 				AD87C6102BD1BFE00090DCCE /* Models */,
 				1355E6242BC5DBB9006A2DEB /* SceneDelegate.swift */,
 				AD87C61C2BD759340090DCCE /* Login */,
@@ -111,6 +116,15 @@
 				AD87C6242BD770640090DCCE /* PostFeedViewController.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		DC3BE2612BD7F714007E8350 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */,
+				DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +207,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3BE2652BD809B8007E8350 /* EditProfileViewController.swift in Sources */,
 				AD87C61E2BD759560090DCCE /* LoginViewController.swift in Sources */,
 				AD87C6202BD759790090DCCE /* SignUpViewController.swift in Sources */,
+				DC3BE2632BD7FA33007E8350 /* ProfileViewController.swift in Sources */,
 				AD87C6122BD1BFFE0090DCCE /* User.swift in Sources */,
 				1355E6272BC5DBB9006A2DEB /* FeedViewController.swift in Sources */,
 				1355E6232BC5DBB9006A2DEB /* AppDelegate.swift in Sources */,

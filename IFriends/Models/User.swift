@@ -24,5 +24,6 @@ struct User: ParseUser {
     var lastPostedDate: Date?
     var fullname: String?
     var country: String?
+    var profilePicture: ParseFile?
 
 }
