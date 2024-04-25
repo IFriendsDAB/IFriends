@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SignUpViewController: UIViewController {
 
@@ -14,9 +15,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var countrySignUpField: UITextField!
     @IBOutlet weak var passwordSignUpField: UITextField!
     @IBOutlet weak var emailSignUpField: UITextField!
+    var countryPickerView = UIPickerView()
+    var countries: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordSignUpField.isSecureTextEntry = true
+        selectOnCountry()
     }
     
 
@@ -54,6 +58,22 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    private func selectOnCountry() {
+
+        for code in NSLocale.isoCountryCodes  {
+            let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+            let name = NSLocale(localeIdentifier: "en_UK").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
+            countries.append(name)
+        }
+        countrySignUpField.inputView = countryPickerView
+        countrySignUpField.placeholder = "Select Home Country"
+        
+        countryPickerView.delegate = self
+        countryPickerView.dataSource = self
+        
+        countryPickerView.tag = 1
+    }
+    
     private func showAlert(description: String?) {
         let alertController = UIAlertController(title: "Unable to Sign Up", message: description ?? "Unknown error", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
@@ -66,6 +86,26 @@ class SignUpViewController: UIViewController {
         let action = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(action)
         present(alertController, animated: true)
+    }
+    
+}
+
+extension SignUpViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countries.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return countries[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        countrySignUpField.text = countries[row]
+        countrySignUpField.resignFirstResponder()
     }
     
 }
