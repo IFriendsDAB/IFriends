@@ -10,8 +10,13 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+protocol PostCellDelegate: AnyObject {
+    func didTapCommentButton(postId: String)
+}
+
 class PostCell: UITableViewCell {
     var imageDataRequest: DataRequest?
+    weak var delegate: PostCellDelegate?
     
     @IBOutlet weak var usernamePost: UILabel!
     @IBOutlet weak var datePost: UILabel!
@@ -22,17 +27,55 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     var post: Post?
+    @IBOutlet weak var commentImageView: UIImageView!
+    
+    @IBOutlet weak var commentSegue: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        print("awakeFromNib called")
         setupLikeGesture()
+        setupCommentGesture()
+        commentSegue.addTarget(self, action: #selector(commentButtonTapped), for: .touchUpInside)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // Clear the image views or any stateful properties that should not be carried over
+        imagePost.image = nil
+        profilePIcture.image = nil
+        likeImageView.gestureRecognizers?.forEach(likeImageView.removeGestureRecognizer)
+        commentImageView.gestureRecognizers?.forEach(commentImageView.removeGestureRecognizer)
+        setupLikeGesture()
+        setupCommentGesture()
     }
     
     private func setupLikeGesture() {
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(handleLikeTap))
         likeImageView.isUserInteractionEnabled = true
         likeImageView.addGestureRecognizer(likeTap)
+    }
+    private func setupCommentGesture() {
+        let commentTap = UITapGestureRecognizer(target: self, action: #selector(handleCommentTap))
+        commentImageView.isUserInteractionEnabled = true
+        commentImageView.addGestureRecognizer(commentTap)
+    }
+    
+    @objc private func commentButtonTapped() {
+        if let postId = post?.objectId {
+            delegate?.didTapCommentButton(postId: postId)
+        } else {
+            print("Error: Post ID is nil")
+        }
+    }
+    
+    @objc private func handleCommentTap(){
+        print("comment icon Tapped in handleCommentTap!")
+        if let postId = post?.objectId {
+                   delegate?.didTapCommentButton(postId: postId)
+               }
     }
     
     @objc func handleLikeTap() {
@@ -168,4 +211,6 @@ extension DateFormatter {
         return formatter
     }()
 }
+
+
 

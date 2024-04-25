@@ -21,6 +21,9 @@
 		AD87C6202BD759790090DCCE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C61F2BD759790090DCCE /* SignUpViewController.swift */; };
 		AD87C6232BD770190090DCCE /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C6222BD770190090DCCE /* PostCell.swift */; };
 		AD87C6252BD770640090DCCE /* PostFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C6242BD770640090DCCE /* PostFeedViewController.swift */; };
+		ADE42BF22BDA218000C49D36 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE42BF12BDA218000C49D36 /* CommentViewController.swift */; };
+		ADE42BF42BDA230600C49D36 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE42BF32BDA230600C49D36 /* Comment.swift */; };
+		ADE42BF82BDA30CD00C49D36 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE42BF72BDA30CD00C49D36 /* CommentCell.swift */; };
 		DC3452FD2BD9F3B000261A61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3452FC2BD9F3B000261A61 /* SearchViewController.swift */; };
 		DC3BE2632BD7FA33007E8350 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */; };
 		DC3BE2652BD809B8007E8350 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */; };
@@ -42,6 +45,9 @@
 		AD87C61F2BD759790090DCCE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AD87C6222BD770190090DCCE /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AD87C6242BD770640090DCCE /* PostFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeedViewController.swift; sourceTree = "<group>"; };
+		ADE42BF12BDA218000C49D36 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		ADE42BF32BDA230600C49D36 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		ADE42BF72BDA30CD00C49D36 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		DC3452FC2BD9F3B000261A61 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 				AD87C6112BD1BFFD0090DCCE /* User.swift */,
 				AD87C6132BD1C0140090DCCE /* Post.swift */,
 				DC572BC32BD9E20400D7A4F7 /* Search.swift */,
+				ADE42BF32BDA230600C49D36 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,6 +127,8 @@
 				1355E6262BC5DBB9006A2DEB /* FeedViewController.swift */,
 				AD87C6222BD770190090DCCE /* PostCell.swift */,
 				AD87C6242BD770640090DCCE /* PostFeedViewController.swift */,
+				ADE42BF72BDA30CD00C49D36 /* CommentCell.swift */,
+				ADE42BF12BDA218000C49D36 /* CommentViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -221,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADE42BF22BDA218000C49D36 /* CommentViewController.swift in Sources */,
 				DC3BE2652BD809B8007E8350 /* EditProfileViewController.swift in Sources */,
 				AD87C61E2BD759560090DCCE /* LoginViewController.swift in Sources */,
 				AD87C6202BD759790090DCCE /* SignUpViewController.swift in Sources */,
@@ -230,10 +240,12 @@
 				1355E6232BC5DBB9006A2DEB /* AppDelegate.swift in Sources */,
 				AD87C6252BD770640090DCCE /* PostFeedViewController.swift in Sources */,
 				DC3452FD2BD9F3B000261A61 /* SearchViewController.swift in Sources */,
+				ADE42BF42BDA230600C49D36 /* Comment.swift in Sources */,
 				1355E6252BC5DBB9006A2DEB /* SceneDelegate.swift in Sources */,
 				DC572BC42BD9E20400D7A4F7 /* Search.swift in Sources */,
 				AD87C6142BD1C0140090DCCE /* Post.swift in Sources */,
 				AD87C6232BD770190090DCCE /* PostCell.swift in Sources */,
+				ADE42BF82BDA30CD00C49D36 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

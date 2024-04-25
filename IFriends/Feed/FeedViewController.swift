@@ -68,6 +68,17 @@ class FeedViewController: UIViewController {
         alertController.addAction(action)
         present(alertController, animated: true)
     }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowCommentsSegue",
+           let commentVC = segue.destination as? CommentViewController,
+           let postId = sender as? String {
+            commentVC.currentPostId = postId
+        } else {
+            print("Segue identifier not matched or sender is not a String")
+        }
+    }
     
 }
 
@@ -79,11 +90,22 @@ extension FeedViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostCell else {
-            return UITableViewCell()
-        }
-        cell.configure(with: posts[indexPath.row])
-        return cell
+                return UITableViewCell()
+            }
+            cell.configure(with: posts[indexPath.row])
+            cell.delegate = self
+            return cell
     }
 }
 
 extension FeedViewController: UITableViewDelegate { }
+
+extension FeedViewController: PostCellDelegate {
+    func didTapCommentButton(postId: String) {
+        print("Delegate method called with postId: \(postId)")
+        performSegue(withIdentifier: "ShowCommentsSegue", sender: postId)
+    }
+}
+
+
+
