@@ -58,10 +58,7 @@ class CommentCell: UITableViewCell {
             }
         }
         
-        commentatorImage.layer.cornerRadius = 25
-        commentatorImage.clipsToBounds = true
-        commentatorImage.layer.borderColor = UIColor.blue.cgColor
-        
+
         
     }
 
