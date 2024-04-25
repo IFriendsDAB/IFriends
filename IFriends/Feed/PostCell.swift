@@ -11,15 +11,6 @@ import Alamofire
 import AlamofireImage
 
 class PostCell: UITableViewCell {
-
-//    @IBOutlet weak var usernamePost: UILabel!
-//    
-//    @IBOutlet weak var imagePost: UIImageView!
-//    @IBOutlet weak var datePost: UILabel!
-//    @IBOutlet weak var captionPost: UILabel!
-//    @IBOutlet weak var timeagoPost: UILabel!
-//    
-//    @IBOutlet weak var profilePicture: UIImageView!
     var imageDataRequest: DataRequest?
     
     @IBOutlet weak var usernamePost: UILabel!
@@ -45,7 +36,11 @@ class PostCell: UITableViewCell {
     }
     
     @objc func handleLikeTap() {
-        guard let post = post else { return }
+        print("Like tapped")
+        guard let post = post else{
+            print("print post is nil")
+            return
+        }
         toggleLike(for: post)
     }
     
@@ -53,18 +48,32 @@ class PostCell: UITableViewCell {
         guard let currentUserObjectId = User.current?.objectId else { return }
         var mutablePost = post
         
+        
         if mutablePost.likedBy.contains(currentUserObjectId) {
+            print("Current User Object ID: \(currentUserObjectId)")
             mutablePost.likesCount -= 1
             mutablePost.likedBy.removeAll { $0 == currentUserObjectId }
-            likeImageView.image = UIImage(named: "thumbs_up")  // Set unliked state image
+            likeImageView.image = UIImage(named: "thumps_up")  // Set unliked state image
+            print("thumps up working")
         } else {
             mutablePost.likesCount += 1
             mutablePost.likedBy.append(currentUserObjectId)
-            likeImageView.image = UIImage(named: "thumbs_up_filled")  // Set liked state image
+            DispatchQueue.main.async {
+                if let image = UIImage(named: "thumps_up_filled") {
+                    self.likeImageView.image = image
+                    print("Image loaded successfully")
+                } else {
+                    print("Failed to load image")
+                }
+            }
         }
         
-        saveUpdatedPost(mutablePost)
+        self.post = mutablePost  // Update the local reference immediately
+        configure(with: mutablePost)  // Reconfigure immediately to reflect changes
+        
+        saveUpdatedPost(mutablePost)  // Save the changes asynchronously
     }
+
     
     func saveUpdatedPost(_ post: Post) {
         post.save { [weak self] result in
@@ -82,9 +91,19 @@ class PostCell: UITableViewCell {
     
     
     func configure(with post: Post){
+        self.post = post
         if let user = post.user {
             usernamePost.text = user.username
         }
+        
+        if let currentUserObjectId = User.current?.objectId,
+           post.likedBy.contains(currentUserObjectId) {
+            likeImageView.image = UIImage(named: "thumps_up_filled") // User has liked this post
+        } else {
+            likeImageView.image = UIImage(named: "thumps_up") // User has not liked this post
+        }
+        
+        
         // Image
         if let imageFile = post.imageFile, let imageUrl = imageFile.url {
             // Use AlamofireImage helper to fetch remote image from URL
@@ -92,8 +111,6 @@ class PostCell: UITableViewCell {
                 switch response.result {
                 case .success(let image):
                     // Set image view image with fetched image
-                    print("IMAGE PRINTED!")
-                    print(imageUrl)
                     self?.imagePost.image = image
                 case .failure(let error):
                     print("❌ Error fetching image: \(error.localizedDescription)")
@@ -110,8 +127,6 @@ class PostCell: UITableViewCell {
                 switch response.result {
                 case .success(let image):
                     // Set image view image with fetched image
-                    print("IMAGE PRINTED!")
-                    print(imageUrl)
                     self?.profilePIcture.image = image
                 case .failure(let error):
                     print("❌ Error fetching profile image: \(error.localizedDescription)")
@@ -122,7 +137,7 @@ class PostCell: UITableViewCell {
         }
         
         // Code to round the profile picture
-        profilePIcture.layer.cornerRadius = 25
+        profilePIcture.layer.cornerRadius = profilePIcture.frame.height / 2
         profilePIcture.clipsToBounds = true
         profilePIcture.layer.borderColor = UIColor.blue.cgColor
         captionPost.text = post.caption
@@ -130,6 +145,7 @@ class PostCell: UITableViewCell {
         if let date = post.createdAt{
             datePost.text = DateFormatter.postFormatter.string(from: date)
         }
+        likesLabel.text = "\(post.likesCount) likes"
         
         if let currentUser = User.current,
            let lastPostedDate = currentUser.lastPostedDate,

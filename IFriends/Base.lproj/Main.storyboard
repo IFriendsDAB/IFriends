@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="IFriends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qRE-MK-U28">
@@ -76,7 +76,7 @@
             <objects>
                 <viewController id="SL5-tn-nJr" customClass="SignUpViewController" customModule="IFriends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V1V-5i-pJe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5M-YW-HpG">
@@ -543,8 +543,8 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cPC-qn-QBP">
                                                             <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-JB-kBi">
-                                                                    <rect key="frame" x="0.0" y="-0.33333333333333215" width="30" height="30"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PJj-JB-kBi">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="HYp-Iu-Ed5"/>
@@ -569,16 +569,25 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYr-Yy-p3u">
+                                                    <rect key="frame" x="10" y="566" width="34" height="20.333333333333371"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hPb-Df-pZu" firstAttribute="top" secondItem="ovt-oA-30s" secondAttribute="bottom" constant="10" id="0ed-hD-xlS"/>
                                                 <constraint firstItem="ovt-oA-30s" firstAttribute="top" secondItem="NOy-Sx-Ehm" secondAttribute="top" constant="10" id="5dv-ey-d8K"/>
                                                 <constraint firstItem="Ij3-bv-bjz" firstAttribute="top" secondItem="hPb-Df-pZu" secondAttribute="bottom" constant="10" id="5fo-c7-mll"/>
                                                 <constraint firstAttribute="trailing" secondItem="ovt-oA-30s" secondAttribute="trailing" constant="10" id="EDq-Ua-KBw"/>
+                                                <constraint firstItem="cYr-Yy-p3u" firstAttribute="top" secondItem="Ij3-bv-bjz" secondAttribute="bottom" id="QaS-8w-YI6"/>
+                                                <constraint firstItem="cYr-Yy-p3u" firstAttribute="leading" secondItem="Ij3-bv-bjz" secondAttribute="leading" id="SGS-80-hTG"/>
                                                 <constraint firstItem="Ij3-bv-bjz" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" constant="10" id="Tpj-Wh-Ai1"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ij3-bv-bjz" secondAttribute="trailing" constant="10" id="W6P-QC-sIU"/>
                                                 <constraint firstItem="hPb-Df-pZu" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" id="Xkv-UE-ufU"/>
                                                 <constraint firstAttribute="trailing" secondItem="hPb-Df-pZu" secondAttribute="trailing" id="Zx2-5B-TXS"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cYr-Yy-p3u" secondAttribute="trailing" constant="20" symbolic="YES" id="cu3-iX-PIa"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ij3-bv-bjz" secondAttribute="bottom" constant="10" id="f5e-Sm-TOc"/>
                                                 <constraint firstItem="ovt-oA-30s" firstAttribute="leading" secondItem="NOy-Sx-Ehm" secondAttribute="leading" constant="10" id="xbN-5W-sFX"/>
                                             </constraints>
@@ -588,6 +597,7 @@
                                             <outlet property="datePost" destination="0wH-h7-CR4" id="RGK-23-BKX"/>
                                             <outlet property="imagePost" destination="VqX-fY-CFs" id="EfV-4a-AOc"/>
                                             <outlet property="likeImageView" destination="PJj-JB-kBi" id="nNp-G9-hrh"/>
+                                            <outlet property="likesLabel" destination="cYr-Yy-p3u" id="Xas-CN-Rib"/>
                                             <outlet property="profilePIcture" destination="6LU-17-loF" id="qvr-5f-qft"/>
                                             <outlet property="timeagoPost" destination="12N-3G-pGm" id="fUJ-DZ-TXx"/>
                                             <outlet property="usernamePost" destination="7Lg-F5-vsp" id="P3p-ON-6fW"/>
@@ -713,11 +723,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ixr-Xb-8y2"/>
+        <segue reference="AdI-Is-RnI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="colors" width="848" height="1280"/>
-        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="launch-screen-text" width="1024" height="1024"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
