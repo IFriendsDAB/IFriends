@@ -16,7 +16,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
-    
+    @IBOutlet weak var profileInfoView: UIView!
+    @IBOutlet weak var country: UILabel!
+    @IBOutlet weak var searchUserField: UITextField!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshUserData()
@@ -27,7 +29,7 @@ class ProfileViewController: UIViewController {
             print("No current user logged in")
             return
         }
-
+        profileInfoView.layer.cornerRadius = 10
         currentUser.fetch { [weak self] result in
             switch result {
             case .success(let updatedUser):
@@ -35,6 +37,7 @@ class ProfileViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.fullname.text = updatedUser.fullname
                     self?.username.text = "@" + (updatedUser.username ?? "no username")
+                    self?.country.text = updatedUser.country
                     self?.updateProfilePicture(updatedUser)
                 }
             case .failure(let error):
@@ -68,7 +71,15 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-        
+    
+    @IBAction func onSearchForUserTapped(_ sender: Any) {
+        print("Tapped")
+        SearchDetail.detail = SearchDetail()
+        SearchDetail.detail.username = searchUserField.text ?? "no entry"
+        print("Entered:", SearchDetail.detail.username)
+        performSegue(withIdentifier: "goToSearchedUser", sender: self)
+    }
+    
     @IBAction func onLogoutTapped(_ sender: Any) {
         showConfirmLogoutAlert()
     }

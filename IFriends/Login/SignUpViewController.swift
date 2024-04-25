@@ -20,7 +20,6 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordSignUpField.isSecureTextEntry = true
-        selectOnCountry()
     }
     
 

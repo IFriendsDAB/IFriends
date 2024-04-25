@@ -21,8 +21,10 @@
 		AD87C6202BD759790090DCCE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C61F2BD759790090DCCE /* SignUpViewController.swift */; };
 		AD87C6232BD770190090DCCE /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C6222BD770190090DCCE /* PostCell.swift */; };
 		AD87C6252BD770640090DCCE /* PostFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87C6242BD770640090DCCE /* PostFeedViewController.swift */; };
+		DC3452FD2BD9F3B000261A61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3452FC2BD9F3B000261A61 /* SearchViewController.swift */; };
 		DC3BE2632BD7FA33007E8350 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */; };
 		DC3BE2652BD809B8007E8350 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */; };
+		DC572BC42BD9E20400D7A4F7 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC572BC32BD9E20400D7A4F7 /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +42,10 @@
 		AD87C61F2BD759790090DCCE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AD87C6222BD770190090DCCE /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AD87C6242BD770640090DCCE /* PostFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFeedViewController.swift; sourceTree = "<group>"; };
+		DC3452FC2BD9F3B000261A61 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC3BE2622BD7FA33007E8350 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DC3BE2642BD809B8007E8350 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		DC572BC32BD9E20400D7A4F7 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				1355E6222BC5DBB9006A2DEB /* AppDelegate.swift */,
+				DC3452FB2BD9F38B00261A61 /* Search */,
 				DC3BE2612BD7F714007E8350 /* Profile */,
 				AD87C6102BD1BFE00090DCCE /* Models */,
 				1355E6242BC5DBB9006A2DEB /* SceneDelegate.swift */,
@@ -95,6 +100,7 @@
 			children = (
 				AD87C6112BD1BFFD0090DCCE /* User.swift */,
 				AD87C6132BD1C0140090DCCE /* Post.swift */,
+				DC572BC32BD9E20400D7A4F7 /* Search.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +122,14 @@
 				AD87C6242BD770640090DCCE /* PostFeedViewController.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		DC3452FB2BD9F38B00261A61 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DC3452FC2BD9F3B000261A61 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		DC3BE2612BD7F714007E8350 /* Profile */ = {
@@ -215,7 +229,9 @@
 				1355E6272BC5DBB9006A2DEB /* FeedViewController.swift in Sources */,
 				1355E6232BC5DBB9006A2DEB /* AppDelegate.swift in Sources */,
 				AD87C6252BD770640090DCCE /* PostFeedViewController.swift in Sources */,
+				DC3452FD2BD9F3B000261A61 /* SearchViewController.swift in Sources */,
 				1355E6252BC5DBB9006A2DEB /* SceneDelegate.swift in Sources */,
+				DC572BC42BD9E20400D7A4F7 /* Search.swift in Sources */,
 				AD87C6142BD1C0140090DCCE /* Post.swift in Sources */,
 				AD87C6232BD770190090DCCE /* PostCell.swift in Sources */,
 			);
@@ -369,6 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8T8TP4M6B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IFriends/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -396,6 +413,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S8T8TP4M6B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IFriends/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
