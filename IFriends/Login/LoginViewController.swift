@@ -20,13 +20,15 @@ class LoginViewController: UIViewController {
     @IBAction func tappedLogin(_ sender: Any) {
         
         print("Login Button Tapped")
+        
+        // Checking that both fields are valid
         guard let username = usernameField.text,
-                      let password = passwordField.text,
-                      !username.isEmpty,
-                      !password.isEmpty else{
-                    showMissingFieldsAlert()
-                    return
-        }
+            let password = passwordField.text,
+            !username.isEmpty,
+            !password.isEmpty else{
+                showMissingFieldsAlert()
+                return
+              }
                 
         User.login(username:username, password: password){[weak self] result in
             switch result {

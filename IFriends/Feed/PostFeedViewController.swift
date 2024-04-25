@@ -124,7 +124,6 @@ class PostFeedViewController: UIViewController, PHPickerViewControllerDelegate {
                 case .success(let user):
                     print("✅ User Saved! \(user)")
                     self?.navigationController?.popViewController(animated: true)
-                    
                 case .failure(let error):
                     self?.showAlert(description: error.localizedDescription)
                 }
