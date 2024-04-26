@@ -126,7 +126,12 @@ IFriends is an app that connect international students within college campuses. 
 <img src="https://imgur.com/1vivxma.gif" alt="Image" width="200" height="400">
 
 ## Narrated Video Demonstrating Application
-<div style="position: relative; padding-bottom: 216.86746987951807%; height: 0;"><iframe src="https://www.loom.com/embed/6371988cc1f84fe79955b1635dcfee5b?sid=7fbc30d6-0ed2-420d-bbf6-1797096058f7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<a href="https://www.loom.com/share/6371988cc1f84fe79955b1635dcfee5b">
+</a>
+<a href="https://www.loom.com/share/6371988cc1f84fe79955b1635dcfee5b">
+<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/6371988cc1f84fe79955b1635dcfee5b-with-play.gif">
+</a>
+
 
 ## Schema 
 
