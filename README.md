@@ -112,7 +112,7 @@ IFriends is an app that connect international students within college campuses. 
 
 ## GIFs for each Milestones
 
-###Current Progress GIF
+### Current Progress GIF
 ![login-register-tab-page](https://github.com/IFriendsDAB/IFriends/assets/64405568/93923e13-c0cf-45b4-9056-7efbb94828b7)
 
 
@@ -125,6 +125,8 @@ IFriends is an app that connect international students within college campuses. 
 ### [BONUS] Interactive Prototype
 <img src="https://imgur.com/1vivxma.gif" alt="Image" width="200" height="400">
 
+## Narrated Video Demonstrating Application
+<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/6371988cc1f84fe79955b1635dcfee5b-with-play.gif">
 
 ## Schema 
 
